@@ -17,7 +17,7 @@ public class DetailActivity2 extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_deail);
+        setContentView(R.layout.activity_deail2);
 
         final Button btn4 = (Button) findViewById(R.id.button);
 
