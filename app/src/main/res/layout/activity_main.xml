@@ -89,6 +89,14 @@
             android:layout_marginTop="20dp"
             android:textSize="30dp" />
 
+        <Button
+            android:id="@+id/btnHabit"
+            android:layout_width="185dp"
+            android:layout_height="60dp"
+            android:text="Habit Support"
+            android:layout_marginTop="20dp"
+            android:textSize="30dp" />
+
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"></TableRow>
@@ -121,13 +129,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         </TableRow>
-
-        <TextView
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="รองรับเฉพาะนิสัย Strong , Creative และ Leader"
-            android:id="@+id/textView"
-            android:layout_column="6"
-            android:layout_marginTop="20dp" />
 
     </TableLayout >
 

@@ -72,6 +72,7 @@ public class MainActivity extends Activity {
         // btnLogin
         final Button btnLogin = (Button) findViewById(R.id.btnLogin);
         final Button btnRegis = (Button) findViewById(R.id.btnRegis);
+        final Button btnHabit = (Button) findViewById(R.id.btnHabit);
 
         sp = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         editor = sp.edit();
@@ -157,7 +158,7 @@ public class MainActivity extends Activity {
                     txtHabit.setText("");
                 }
 
-                else if(strHabit.equals("Strong"))
+                else if(strHabit.equals("Fulfiller"))
                 {
                     Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
                     Intent newActivity = new Intent(MainActivity.this,DetailActivity.class);
@@ -165,7 +166,7 @@ public class MainActivity extends Activity {
                     startActivity(newActivity);
                 }
 
-                else if(strHabit.equals("Creative"))
+                else if(strHabit.equals("Mechanic"))
                 {
                     Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
                     Intent newActivity = new Intent(MainActivity.this,DetailActivity2.class);
@@ -173,10 +174,110 @@ public class MainActivity extends Activity {
                     startActivity(newActivity);
                 }
 
-                else if(strHabit.equals("Leader"))
+                else if(strHabit.equals("Nurturer"))
                 {
                     Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
                     Intent newActivity = new Intent(MainActivity.this,DetailActivity3.class);
+                    newActivity.putExtra("MemberID", strMemberID);
+                    startActivity(newActivity);
+                }
+                else if(strHabit.equals("Artist"))
+                {
+                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Intent newActivity = new Intent(MainActivity.this,DetailActivity4.class);
+                    newActivity.putExtra("MemberID", strMemberID);
+                    startActivity(newActivity);
+                }
+
+                else if(strHabit.equals("Protector"))
+                {
+                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Intent newActivity = new Intent(MainActivity.this,DetailActivity5.class);
+                    newActivity.putExtra("MemberID", strMemberID);
+                    startActivity(newActivity);
+                }
+
+                else if(strHabit.equals("Idealist"))
+                {
+                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Intent newActivity = new Intent(MainActivity.this,DetailActivity6.class);
+                    newActivity.putExtra("MemberID", strMemberID);
+                    startActivity(newActivity);
+                }
+                else if(strHabit.equals("Scientist"))
+                {
+                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Intent newActivity = new Intent(MainActivity.this,DetailActivity7.class);
+                    newActivity.putExtra("MemberID", strMemberID);
+                    startActivity(newActivity);
+                }
+
+                else if(strHabit.equals("Thinker"))
+                {
+                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Intent newActivity = new Intent(MainActivity.this,DetailActivity8.class);
+                    newActivity.putExtra("MemberID", strMemberID);
+                    startActivity(newActivity);
+                }
+
+                else if(strHabit.equals("Guardian"))
+                {
+                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Intent newActivity = new Intent(MainActivity.this,DetailActivity9.class);
+                    newActivity.putExtra("MemberID", strMemberID);
+                    startActivity(newActivity);
+                }
+                else if(strHabit.equals("Doer") )
+                {
+                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Intent newActivity = new Intent(MainActivity.this,DetailActivity10.class);
+                    newActivity.putExtra("MemberID", strMemberID);
+                    startActivity(newActivity);
+                }
+
+                else if(strHabit.equals("Caregiver"))
+                {
+                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Intent newActivity = new Intent(MainActivity.this,DetailActivity11.class);
+                    newActivity.putExtra("MemberID", strMemberID);
+                    startActivity(newActivity);
+                }
+
+                else if(strHabit.equals("Performer"))
+                {
+                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Intent newActivity = new Intent(MainActivity.this,DetailActivity12.class);
+                    newActivity.putExtra("MemberID", strMemberID);
+                    startActivity(newActivity);
+                }
+                else if(strHabit.equals("Giver") )
+                {
+                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Intent newActivity = new Intent(MainActivity.this,DetailActivity13.class);
+                    newActivity.putExtra("MemberID", strMemberID);
+                    startActivity(newActivity);
+                }
+
+                else if(strHabit.equals("Inspirer"))
+                {
+                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Intent newActivity = new Intent(MainActivity.this,DetailActivity14.class);
+                    newActivity.putExtra("MemberID", strMemberID);
+                    startActivity(newActivity);
+                }
+
+                else if(strHabit.equals("Executive"))
+                {
+                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Intent newActivity = new Intent(MainActivity.this,DetailActivity15.class);
+                    newActivity.putExtra("MemberID", strMemberID);
+                    startActivity(newActivity);
+                }
+
+                else if(strHabit.equals("Visionary"))
+                {
+                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Intent newActivity = new Intent(MainActivity.this,DetailActivity16.class);
                     newActivity.putExtra("MemberID", strMemberID);
                     startActivity(newActivity);
                 }
@@ -188,6 +289,16 @@ public class MainActivity extends Activity {
 
                 // Open Form 2
                 Intent newActivity = new Intent(MainActivity.this,RegisActivity.class);
+                startActivity(newActivity);
+
+            }
+        });
+
+        btnHabit.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                // Open Form 2
+                Intent newActivity = new Intent(MainActivity.this,HabitActivity.class);
                 startActivity(newActivity);
 
             }
