@@ -6,7 +6,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher2"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
@@ -105,170 +105,10 @@
             android:screenOrientation="portrait"
             android:label="@string/app_name" />
         <activity
-            android:name="Sum1"
+            android:name=".WebActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum2"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum3"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum4"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum5"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum6"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum7"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum8"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum9"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum10"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum11"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum12"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum13"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum14"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum15"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum16"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum17"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum18"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum19"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum20"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum21"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum22"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum23"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum24"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum25"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum26"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum27"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum28"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum29"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum30"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum31"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name="Sum32"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
-        <activity
-            android:name=".RegisActivity"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" />
+            android:label="แบบทดสอบ" />
     </application>
 
 </manifest>

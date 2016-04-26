@@ -1,12 +1,16 @@
 package com.example.apple.cal4;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.StrictMode;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -21,34 +25,14 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.os.StrictMode;
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Intent;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
-import android.widget.Toast;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends Activity {
-
-    final String PREF_NAME = "LoginPreferences";
-    final String KEY_USERNAME = "Username";
-    final String KEY_PASSWORD = "Password";
-    final String KEY_REMEMBER = "RememberUsername";
-
-    SharedPreferences sp;
-    SharedPreferences.Editor editor;
-
-    CheckBox cbRemember;
 
     @SuppressLint("NewApi")
     @Override
@@ -64,45 +48,12 @@ public class MainActivity extends Activity {
 
         final AlertDialog.Builder ad = new AlertDialog.Builder(this);
 
-        // txtUsername & txtPassword
-        final EditText txtUser = (EditText)findViewById(R.id.txtUsername);
-        final EditText txtPass = (EditText)findViewById(R.id.txtPassword);
         final EditText txtHabit = (EditText)findViewById(R.id.txtHabit);
 
         // btnLogin
         final Button btnLogin = (Button) findViewById(R.id.btnLogin);
-        final Button btnRegis = (Button) findViewById(R.id.btnRegis);
         final Button btnHabit = (Button) findViewById(R.id.btnHabit);
-
-        sp = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
-        editor = sp.edit();
-
-        txtUser.addTextChangedListener(new TextWatcher() {
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-            public void afterTextChanged(Editable s) {
-                editor = sp.edit();
-                editor.putString(KEY_USERNAME, s.toString());
-                editor.putString(KEY_PASSWORD, s.toString());
-                editor.commit();
-            }
-        });
-
-        cbRemember = (CheckBox)findViewById(R.id.checkBox);
-        cbRemember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                editor.putBoolean(KEY_REMEMBER, isChecked);
-                editor.commit();
-            }
-        });
-
-        boolean isRemember = sp.getBoolean(KEY_REMEMBER, false);
-        cbRemember.setChecked(isRemember);
-
-        if(isRemember) {
-            String username = sp.getString(KEY_USERNAME, "");
-            txtUser.setText(username);
-        }
+        final Button btnWeb = (Button) findViewById(R.id.btnWeb);
 
         // Perform action on click
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -110,8 +61,6 @@ public class MainActivity extends Activity {
 
                 String url = "http://10.0.3.2/checkLogin.php";
                 List<NameValuePair> params = new ArrayList<NameValuePair>();
-                params.add(new BasicNameValuePair("strUser", txtUser.getText().toString()));
-                params.add(new BasicNameValuePair("strPass", txtPass.getText().toString()));
                 params.add(new BasicNameValuePair("strHabit", txtHabit.getText().toString()));
 
                 /** Get result from Server (Return the JSON Code)
@@ -153,130 +102,128 @@ public class MainActivity extends Activity {
                     ad.setPositiveButton("Close", null);
                     ad.setMessage(strError);
                     ad.show();
-                    txtUser.setText("");
-                    txtPass.setText("");
                     txtHabit.setText("");
                 }
 
-                else if(strHabit.equals("Fulfiller"))
+                else if(strHabit.equals("ISTJ"))
                 {
-                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "มาถึงแหล่งข้อมูลแล้ว", Toast.LENGTH_SHORT).show();
                     Intent newActivity = new Intent(MainActivity.this,DetailActivity.class);
                     newActivity.putExtra("MemberID", strMemberID);
                     startActivity(newActivity);
                 }
 
-                else if(strHabit.equals("Mechanic"))
+                else if(strHabit.equals("ISTP"))
                 {
-                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "มาถึงแหล่งข้อมูลแล้ว", Toast.LENGTH_SHORT).show();
                     Intent newActivity = new Intent(MainActivity.this,DetailActivity2.class);
                     newActivity.putExtra("MemberID", strMemberID);
                     startActivity(newActivity);
                 }
 
-                else if(strHabit.equals("Nurturer"))
+                else if(strHabit.equals("ISFJ"))
                 {
-                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "มาถึงแหล่งข้อมูลแล้ว", Toast.LENGTH_SHORT).show();
                     Intent newActivity = new Intent(MainActivity.this,DetailActivity3.class);
                     newActivity.putExtra("MemberID", strMemberID);
                     startActivity(newActivity);
                 }
-                else if(strHabit.equals("Artist"))
+                else if(strHabit.equals("ISFP"))
                 {
-                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "มาถึงแหล่งข้อมูลแล้ว", Toast.LENGTH_SHORT).show();
                     Intent newActivity = new Intent(MainActivity.this,DetailActivity4.class);
                     newActivity.putExtra("MemberID", strMemberID);
                     startActivity(newActivity);
                 }
 
-                else if(strHabit.equals("Protector"))
+                else if(strHabit.equals("INFJ"))
                 {
-                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "มาถึงแหล่งข้อมูลแล้ว", Toast.LENGTH_SHORT).show();
                     Intent newActivity = new Intent(MainActivity.this,DetailActivity5.class);
                     newActivity.putExtra("MemberID", strMemberID);
                     startActivity(newActivity);
                 }
 
-                else if(strHabit.equals("Idealist"))
+                else if(strHabit.equals("INFP"))
                 {
-                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "มาถึงแหล่งข้อมูลแล้ว", Toast.LENGTH_SHORT).show();
                     Intent newActivity = new Intent(MainActivity.this,DetailActivity6.class);
                     newActivity.putExtra("MemberID", strMemberID);
                     startActivity(newActivity);
                 }
-                else if(strHabit.equals("Scientist"))
+                else if(strHabit.equals("INTJ"))
                 {
-                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "มาถึงแหล่งข้อมูลแล้ว", Toast.LENGTH_SHORT).show();
                     Intent newActivity = new Intent(MainActivity.this,DetailActivity7.class);
                     newActivity.putExtra("MemberID", strMemberID);
                     startActivity(newActivity);
                 }
 
-                else if(strHabit.equals("Thinker"))
+                else if(strHabit.equals("INTP"))
                 {
-                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "มาถึงแหล่งข้อมูลแล้ว", Toast.LENGTH_SHORT).show();
                     Intent newActivity = new Intent(MainActivity.this,DetailActivity8.class);
                     newActivity.putExtra("MemberID", strMemberID);
                     startActivity(newActivity);
                 }
 
-                else if(strHabit.equals("Guardian"))
+                else if(strHabit.equals("ESTJ"))
                 {
-                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "มาถึงแหล่งข้อมูลแล้ว", Toast.LENGTH_SHORT).show();
                     Intent newActivity = new Intent(MainActivity.this,DetailActivity9.class);
                     newActivity.putExtra("MemberID", strMemberID);
                     startActivity(newActivity);
                 }
-                else if(strHabit.equals("Doer") )
+                else if(strHabit.equals("ESTP") )
                 {
-                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "มาถึงแหล่งข้อมูลแล้ว", Toast.LENGTH_SHORT).show();
                     Intent newActivity = new Intent(MainActivity.this,DetailActivity10.class);
                     newActivity.putExtra("MemberID", strMemberID);
                     startActivity(newActivity);
                 }
 
-                else if(strHabit.equals("Caregiver"))
+                else if(strHabit.equals("ESFJ"))
                 {
-                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "มาถึงแหล่งข้อมูลแล้ว", Toast.LENGTH_SHORT).show();
                     Intent newActivity = new Intent(MainActivity.this,DetailActivity11.class);
                     newActivity.putExtra("MemberID", strMemberID);
                     startActivity(newActivity);
                 }
 
-                else if(strHabit.equals("Performer"))
+                else if(strHabit.equals("ESFP"))
                 {
-                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "มาถึงแหล่งข้อมูลแล้ว", Toast.LENGTH_SHORT).show();
                     Intent newActivity = new Intent(MainActivity.this,DetailActivity12.class);
                     newActivity.putExtra("MemberID", strMemberID);
                     startActivity(newActivity);
                 }
-                else if(strHabit.equals("Giver") )
+                else if(strHabit.equals("ENFJ") )
                 {
-                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "มาถึงแหล่งข้อมูลแล้ว", Toast.LENGTH_SHORT).show();
                     Intent newActivity = new Intent(MainActivity.this,DetailActivity13.class);
                     newActivity.putExtra("MemberID", strMemberID);
                     startActivity(newActivity);
                 }
 
-                else if(strHabit.equals("Inspirer"))
+                else if(strHabit.equals("ENFP"))
                 {
-                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "มาถึงแหล่งข้อมูลแล้ว", Toast.LENGTH_SHORT).show();
                     Intent newActivity = new Intent(MainActivity.this,DetailActivity14.class);
                     newActivity.putExtra("MemberID", strMemberID);
                     startActivity(newActivity);
                 }
 
-                else if(strHabit.equals("Executive"))
+                else if(strHabit.equals("ENTJ"))
                 {
-                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "มาถึงแหล่งข้อมูลแล้ว", Toast.LENGTH_SHORT).show();
                     Intent newActivity = new Intent(MainActivity.this,DetailActivity15.class);
                     newActivity.putExtra("MemberID", strMemberID);
                     startActivity(newActivity);
                 }
 
-                else if(strHabit.equals("Visionary"))
+                else if(strHabit.equals("ENTP"))
                 {
-                    Toast.makeText(MainActivity.this, "Login OK", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "มาถึงแหล่งข้อมูลแล้ว", Toast.LENGTH_SHORT).show();
                     Intent newActivity = new Intent(MainActivity.this,DetailActivity16.class);
                     newActivity.putExtra("MemberID", strMemberID);
                     startActivity(newActivity);
@@ -284,23 +231,19 @@ public class MainActivity extends Activity {
             }
         });
 
-        btnRegis.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-
-                // Open Form 2
-                Intent newActivity = new Intent(MainActivity.this,RegisActivity.class);
-                startActivity(newActivity);
-
-            }
-        });
-
         btnHabit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
                 // Open Form 2
                 Intent newActivity = new Intent(MainActivity.this,HabitActivity.class);
                 startActivity(newActivity);
+            }
+        });
 
+        btnWeb.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Open Form 2
+                Intent newActivity = new Intent(MainActivity.this,WebActivity.class);
+                startActivity(newActivity);
             }
         });
 
