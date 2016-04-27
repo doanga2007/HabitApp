@@ -63,15 +63,6 @@ public class MainActivity extends Activity {
                 List<NameValuePair> params = new ArrayList<NameValuePair>();
                 params.add(new BasicNameValuePair("strHabit", txtHabit.getText().toString()));
 
-                /** Get result from Server (Return the JSON Code)
-                 * StatusID = ? [0=Failed,1=Complete]
-                 * MemberID = ? [Eg : 1]
-                 * Error	= ?	[On case error return custom error message]
-                 *
-                 * Eg Login Failed = {"StatusID":"0","MemberID":"0","Error":"Incorrect Username and Password"}
-                 * Eg Login Complete = {"StatusID":"1","MemberID":"2","Error":""}
-                 */
-
                 String resultServer  = getHttpPost(url,params);
 
                 /*** Default Value ***/
